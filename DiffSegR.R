@@ -1,5 +1,5 @@
 ######################################################################
-# install DiffSegR
+# install DiffSegR 20241105
 mamba create -n DiffSegR -c conda-forge mamba r-base=4.4.1
 
 -- New R --
@@ -21,4 +21,4 @@ pak::pkg_install("sanssouci-org/sanssouci")
 remotes::install_github("aLiehrmann/DiffSegR")
 
 ######################################################################
-# use DiffSegR
+# use DiffSegR 20241105
