@@ -86,3 +86,8 @@ knitr::kable(DERs[1:5, colnames(DERs)%in%c(
   "log2FoldChange",
   "padj")
 ])
+selected_columns <- c("seqnames", "start", "end", "width", "strand", "log2FoldChange", "padj")
+selected_DERs <- DERs[, colnames(DERs) %in% selected_columns]
+write.table(selected_DERs, "DiffSegR_F_out.tsv", sep = "\t", row.names = FALSE, col.names = TRUE, quote = FALSE)   #
+**<span style="color: red;">output file name</span>**
+**<font color="red">红色加粗文本</font>**
