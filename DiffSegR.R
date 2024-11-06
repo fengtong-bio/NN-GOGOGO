@@ -25,7 +25,7 @@ remotes::install_github("aLiehrmann/DiffSegR")
 library(DiffSegR)
 cd "working_directory"
 
-sample_info=read.table("DiffSegR_F_sample_info.txt", header = T, sep="\t", check.names = F)
+sample_info=read.table("DiffSegR_F_sample_info.txt", header = T, sep="\t", check.names = F)  #file name
 knitr::kable(sample_info, row.names = FALSE)
 nb_threads_tot = 40  #threads
 nb_threads_locus = 40  #threads
@@ -38,8 +38,8 @@ data <- newExperiment(
     chromEnd   = 743556,  #chr length
     locusID    = "FF"  #ID
   ),
-  referenceCondition = "Group_F",
-  otherCondition     = "Group_M",
+  referenceCondition = "Group_F",  #Group 1
+  otherCondition     = "Group_M",  #Group 2
   nbThreads          = nb_threads_tot,
   nbThreadsByLocus   = nb_threads_locus,
   coverage           = working_directory
