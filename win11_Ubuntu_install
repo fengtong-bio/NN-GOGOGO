@@ -4,6 +4,7 @@
 →适用于Linux的Windows子系统
 →虚拟平台
 重启
+软件商店安装wsl
 ####################
 # PowerShell with administrator
 wsl --install -d Ubuntu
