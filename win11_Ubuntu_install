@@ -1,0 +1,6 @@
+# PowerShell with administrator
+wsl --install -d Ubuntu
+wsl --update
+wsl --set-default-version 2
+wsl.exe --user root
+passwd root
