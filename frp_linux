@@ -48,7 +48,7 @@ systemctl status frps
 # 电脑端 解压安装 进入目录
 cd /mnt/c/frp_0.62.1_linux_amd64
 #########################
-#端脑端 配置文件
+#端脑端 配置文件，在Linux子系统里使用vi修改，直接使用记事本修改会报错
 # frpc-2027.toml
 serverAddr = "服务器IP"
 serverPort = 7800
