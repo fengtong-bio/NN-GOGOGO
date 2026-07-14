@@ -1,0 +1,24 @@
+#rm -rf MAG_prokka MAG_eggnog MAG_cazy
+#mkdir MAG_prokka
+#mkdir MAG_eggnog
+#mkdir MAG_cazy
+
+for i in $(cat fa_file.list)
+do
+
+export PATH=/PATH/mamba/mambaforge/bin:$PATH
+export PATH=/PATH/mamba/mambaforge/envs/prokka/bin:$PATH
+prokka /PATH/$i --outdir /PATH/MAG_prokka/$i --prefix $i --metagenome --force --cpus 2 --centre X --compliant
+
+export PATH=/PATH/mamba/mambaforge/envs/eggnog/bin:$PATH
+mkdir /PATH/MAG_eggnog/$i
+emapper.py -i /PATH/MAG_prokka/$i/$i.faa --output_dir /PATH/MAG_eggnog/$i --cpu 2 -o $i -d bact
+
+export PATH=/PATH/mamba/mambaforge/envs/cazy/bin:$PATH
+mkdir /PATH/MAG_cazy/$i
+run_dbcan --out_dir /PATH/MAG_cazy/$i --db_dir /PATH/software/cazy_db --hmm_cpu 2 /PATH/MAG_prokka/$i/$i.faa protein -t hmmer
+
+export PATH=/PATH/mamba/mambaforge/envs/dbcan4/bin:$PATH
+mkdir /PATH/MAG_dbCAN/$i
+run_dbcan --out_dir /PATH/MAG_dbCAN/$i --db_dir /PATH/MAG_prokka/$i/$i.faa protein --tools dbcansub --dbcan_thread 1
+done
