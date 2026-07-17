@@ -13,6 +13,7 @@ prokka /PATH/$i --outdir /PATH/MAG_prokka/$i --prefix $i --metagenome --force --
 export PATH=/PATH/mamba/mambaforge/envs/eggnog/bin:$PATH
 mkdir /PATH/MAG_eggnog/$i
 emapper.py -i /PATH/MAG_prokka/$i/$i.faa --output_dir /PATH/MAG_eggnog/$i --cpu 2 -o $i -d bact
+emapper.py  -m diamond -i /PATH/MAG_prokka/$i/$i.faa --output_dir /PATH/MAG_eggnog/$i -o $i --cpu 2 --data_dir /PATH/software/SK_conda/eggNOG_database --pfam_realign
 
 export PATH=/PATH/mamba/mambaforge/envs/cazy/bin:$PATH
 mkdir /PATH/MAG_cazy/$i
